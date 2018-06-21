@@ -1,0 +1,18 @@
+[logging]
+level = "info"
+output = "stdout"
+[server]
+balance = "roundrobin"
+bind = "0.0.0.0:3000"
+  [server.discovery]
+  kind = "static"
+  static_list = [
+    "127.0.0.1:4000"
+  ]
+  [server.healthcheck]
+  interval = "0.5s"
+  timeout = "0.5s"
+  count = 10
+  loss = 0.7
+  rtt = "0.5s"
+  kind = "ping"
